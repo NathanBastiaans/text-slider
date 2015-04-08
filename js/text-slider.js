@@ -33,7 +33,7 @@
 			if ( settings.debug == 1 )
 				console.log('loop item: ' + $(this) );
 
-            $(this).addClass( 'slide-' + settings.count ).css({opacity: 0}).hide();
+            $(this).addClass( 'slide-' + settings.count ).css({opacity: 0, paddingTop: '100px', paddingBottom: '0px'}).hide();
 
             settings.count = settings.count + 1;
 
@@ -49,9 +49,9 @@
             if ( settings.nextItem >= settings.count )
                 settings.nextItem = 1;
 
-            $('.slide-' + settings.currentItem ).animate({ paddingTop: '200px', opacity: 0 }, 750, function () {
+            $('.slide-' + settings.currentItem ).animate({ paddingTop: '100px', paddingBottom: '0px', opacity: 0 }, 750, function () {
                 $(this).hide();
-                $('.slide-' + settings.nextItem ).show().animate({ paddingTop: '150px', opacity: 1 }, 750);
+                $('.slide-' + settings.nextItem ).show().animate({ paddingTop: '50px', paddingBottom: '50px', opacity: 1 }, 750);
 
                 settings.currentItem = settings.nextItem;
 
