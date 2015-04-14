@@ -31,26 +31,26 @@
 				
 					<div class="slider-item">
 					
-						<h1>Jumbotron heading</h1>
-						<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-						<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-					
+						<h1>Text slider</h1>
+						<p class="lead">Text-slider is an easy to use jquery plugin to make beautiful text sliders. </p>
+						
 					</div>
 
 					<div class="slider-item">
 					
-						<h1>Simple heading</h1>
-						<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-						<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-					
+						<h1>Easy to use</h1>
+						<p class="lead">
+							$('.slide').textSlider();
+							is all you need
+						</p>
+						
 					</div>
 
 					<div class="slider-item">
 					
-						<h1>Common sense</h1>
-						<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-						<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-					
+						<h1>Slide trough the night</h1>
+						<p class="lead">Or stop at the last slide</p>
+						
 					</div>
 				
 				</div>
@@ -59,32 +59,33 @@
 
 			<div class="row">
 			
-				<div class="col-lg-6">
-				
-					<h4>Subheading</h4>
-					<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-					<h4>Subheading</h4>
-					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-					<h4>Subheading</h4>
-					<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-
-				</div>
 
 				<div class="col-lg-6">
 			
-					<h4>Subheading</h4>
-					<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-					<h4>Subheading</h4>
-					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-					<h4>Subheading</h4>
-					<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+					<h4>Easy to use</h4>
+					
+					Easy to use and costumize
+					<pre class="well">
+$('.slide').textSlider(
+	{
+		timeout: 7500,
+		slideTime: 500
+	}
+);</pre>
+					
 
 				</div>
 				
+				<div class="col-lg-6">
+				
+					<h4>Cool functions</h4>
+					<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+					<h4>A lot more to come</h4>
+					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+				</div>
+
 			</div>
 
 			<footer class="footer">
@@ -97,7 +98,12 @@
 		
 		<script>
 			$(document).ready(function () {
-				$('.slide').textSlider();
+				$('.slide').textSlider(
+					{
+						timeout: 7500,
+						slideTime: 500
+					}
+				);
 			});
 		</script>
 
