@@ -6,7 +6,8 @@
 		var settings = $.extend(
 			{
 				timeout: 5000,
-				slideTime: 750
+				slideTime: 750,
+				loop: 1
 			},
 			options 
 		);
@@ -20,14 +21,15 @@
 			function () 
 			{
 
-				$(this).addClass( 'slide-' + ( count ) )
-					.css(
-						{
-							//opacity:	   0, 
-							paddingTop:	'100px',
-							paddingBottom: '0px'
-						}
-					);
+				$(this)
+				.addClass( 'slide-' + ( count ) )
+				.css(
+					{
+						opacity: 0, 
+						paddingTop:	'100px',
+						paddingBottom: '0px'
+					}
+				);
 
 				$(this).hide();
 
@@ -39,7 +41,16 @@
 		function firstSlide ()
 		{
 
-			$('.slide-' + currentItem ).show().animate({ paddingTop: '50px', paddingBottom: '50px', opacity: 1 }, settings.slideTime);
+			$('.slide-' + currentItem )
+			.show()
+			.animate(
+				{
+					paddingTop:    '50px', 
+					paddingBottom: '50px',
+					opacity:       1
+				},
+				settings.slideTime
+			);
 
 			setTimeout ( transition, settings.timeout );
 
@@ -51,12 +62,46 @@
 			nextItem = parseInt ( currentItem + 1 );
 
 			if ( nextItem >= count )
-				nextItem = 0;
+			{
 
-			$('.slide-' + currentItem ).animate({ paddingTop: '100px', paddingBottom: '0px', opacity: 0 }, settings.slideTime, function () {
-				$(this).hide();
-				$('.slide-' + nextItem ).show().animate({ paddingTop: '50px', paddingBottom: '50px', opacity: 1 }, settings.slideTime);
-			});
+				if ( settings.loop == 1 )
+				{
+
+					nextItem = 0;
+
+				}
+				else
+				{
+
+					return false;
+
+				}
+
+			}
+
+			$('.slide-' + currentItem )
+			.animate(
+				{
+					paddingTop:    '100px', 
+					paddingBottom: '0px',
+					opacity:       0 
+				}, 
+				settings.slideTime,
+				function () 
+				{
+					$(this).hide();
+					$('.slide-' + nextItem )
+					.show()
+					.animate(
+						{
+							paddingTop:    '50px',
+							paddingBottom: '50px', 
+							opacity:       1 
+						},
+						settings.slideTime
+					);
+				}
+			);
 
 			currentItem = nextItem;
 
