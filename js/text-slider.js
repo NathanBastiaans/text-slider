@@ -1,67 +1,71 @@
 (function ( $ ) {
 
-    $.fn.textSlider = function ( options ) {
+	$.fn.textSlider = function ( options ) {
 
-        /* Default settings */
-        var settings = $.extend({
-            timeout:     7500,
-            nextItem:    0,
-            currentItem: 1,
-            count:       1,
-			overlay:     0,
-			debug:       0
-        }, options );
-		
-		if ( settings.debug == 1 )
-			console.log('Starting slider');
-			
-		if ( settings.overlay == 1 )
-		{	
-		
-			if ( settings.debug == 1 )
-				console.log('Creating overlay div');
-				
-			this.wrapInner('<div class="slide-overlay"></div>');
-			
+		/* Default settings */
+		var settings = $.extend(
+			{
+				timeout: 2000,
+				slideTime: 750
+			},
+			options 
+		);
+
+		var nextItem;
+
+		var currentItem = 0;
+		var count = 0;
+
+		this.children('.slider-item').each(
+			function () 
+			{
+
+				$(this).addClass( 'slide-' + ( count ) )
+					.css(
+						{
+							//opacity:	   0, 
+							paddingTop:	'100px',
+							paddingBottom: '0px'
+						}
+					);
+
+				$(this).hide();
+
+				count++;
+
+			}
+		);
+
+		function firstSlide ()
+		{
+
+			$('.slide-' + currentItem ).show().animate({ paddingTop: '50px', paddingBottom: '50px', opacity: 1 }, settings.slideTime);
+
+			setTimeout ( transition, settings.timeout );
+
 		}
 
-		if ( settings.debug == 1 )
-			console.log('Starting loop trough items');
+		function transition ()
+		{
 
-        this.children('.slider-item').each(function () {
-		
-			if ( settings.debug == 1 )
-				console.log('loop item: ' + $(this) );
+			nextItem = parseInt ( currentItem + 1 );
 
-            $(this).addClass( 'slide-' + settings.count ).css({opacity: 0, paddingTop: '100px', paddingBottom: '0px'}).hide();
+			if ( nextItem >= count )
+				nextItem = 0;
 
-            settings.count = settings.count + 1;
+			$('.slide-' + currentItem ).animate({ paddingTop: '100px', paddingBottom: '0px', opacity: 0 }, settings.slideTime, function () {
+				$(this).hide();
+				$('.slide-' + nextItem ).show().animate({ paddingTop: '50px', paddingBottom: '50px', opacity: 1 }, settings.slideTime);
+			});
 
-        });
+			currentItem = nextItem;
 
-        function transition ()
-        {
-		
-			if ( settings.debug == 1)
-				console.log('Starting new transition ' + settings.currentItem );
+			setTimeout ( transition, settings.timeout );
 
-            settings.nextItem = settings.currentItem + 1;
-            if ( settings.nextItem >= settings.count )
-                settings.nextItem = 1;
+		}
 
-            $('.slide-' + settings.currentItem ).animate({ paddingTop: '100px', paddingBottom: '0px', opacity: 0 }, 750, function () {
-                $(this).hide();
-                $('.slide-' + settings.nextItem ).show().animate({ paddingTop: '50px', paddingBottom: '50px', opacity: 1 }, 750);
+		return firstSlide ();
 
-                settings.currentItem = settings.nextItem;
-
-            });
-
-            setTimeout ( transition, settings.timeout );
-        }
-
-        return transition ();
-
-    };
+	};
 
 }( jQuery ));
