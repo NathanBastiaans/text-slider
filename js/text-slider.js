@@ -5,7 +5,7 @@
 		/* Default settings */
 		var settings = $.extend(
 			{
-				timeout: 2000,
+				timeout: 5000,
 				slideTime: 750
 			},
 			options 
