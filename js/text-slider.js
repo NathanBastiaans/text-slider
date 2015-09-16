@@ -26,7 +26,7 @@
 				.addClass( 'slide-' + ( count ) )
 				.css(
 					{
-						opacity: 0, 
+						opacity: 0,
 						paddingTop: settings.height + 'px',
 						paddingBottom: '0px'
 					}
@@ -46,7 +46,7 @@
 			.show()
 			.animate(
 				{
-					paddingTop:    ( settings.height / 2 ) + 'px', 
+					paddingTop:    ( settings.height / 2 ) + 'px',
 					paddingBottom: ( settings.height / 2 ) + 'px',
 					opacity:       1
 				},
@@ -83,12 +83,12 @@
 			$('.slide-' + currentItem )
 			.animate(
 				{
-					paddingTop:    settings.height + 'px', 
+					paddingTop:    settings.height + 'px',
 					paddingBottom: '0px',
-					opacity:       0 
-				}, 
+					opacity:       0
+				},
 				settings.slideTime,
-				function () 
+				function ()
 				{
 					$(this).hide();
 					$('.slide-' + nextItem )
@@ -96,8 +96,8 @@
 					.animate(
 						{
 							paddingTop:    ( settings.height / 2 ) + 'px',
-							paddingBottom: ( settings.height / 2 ) + 'px', 
-							opacity:       1 
+							paddingBottom: ( settings.height / 2 ) + 'px',
+							opacity:       1
 						},
 						settings.slideTime
 					);
