@@ -83,7 +83,7 @@
 			$('.slide-' + currentItem )
 			.animate(
 				{
-					paddingTop:    settings.height + '100px', 
+					paddingTop:    settings.height + 'px', 
 					paddingBottom: '0px',
 					opacity:       0 
 				}, 
