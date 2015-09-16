@@ -7,7 +7,8 @@
 			{
 				timeout: 5000,
 				slideTime: 750,
-				loop: 1
+				loop: 1,
+				height: 100
 			},
 			options 
 		);
@@ -26,7 +27,7 @@
 				.css(
 					{
 						opacity: 0, 
-						paddingTop:	'100px',
+						paddingTop: settings.height + 'px',
 						paddingBottom: '0px'
 					}
 				);
@@ -45,8 +46,8 @@
 			.show()
 			.animate(
 				{
-					paddingTop:    '50px', 
-					paddingBottom: '50px',
+					paddingTop:    ( settings.height / 2 ) + 'px', 
+					paddingBottom: ( settings.height / 2 ) + 'px',
 					opacity:       1
 				},
 				settings.slideTime
@@ -82,7 +83,7 @@
 			$('.slide-' + currentItem )
 			.animate(
 				{
-					paddingTop:    '100px', 
+					paddingTop:    settings.height + '100px', 
 					paddingBottom: '0px',
 					opacity:       0 
 				}, 
@@ -94,8 +95,8 @@
 					.show()
 					.animate(
 						{
-							paddingTop:    '50px',
-							paddingBottom: '50px', 
+							paddingTop:    ( settings.height / 2 ) + 'px',
+							paddingBottom: ( settings.height / 2 ) + 'px', 
 							opacity:       1 
 						},
 						settings.slideTime
